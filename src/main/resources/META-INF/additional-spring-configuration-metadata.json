@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "origin.localhost",
+      "type": "java.lang.String",
+      "description": "allowed origin."
+    },
+    {
+      "name": "api.prefix",
+      "type": "java.lang.String",
+      "description": "api prefix."
+    }
+  ] }

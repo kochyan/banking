@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+api:
+  prefix: /api
+
+origin:
+  localhost: http://localhost:8081
+
+spring:
+  application:
+    name: banking
+  datasource:
+    username: sstu
+    password: pass123
+    url: jdbc:postgresql://localhost:5432/banking
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+  session:
+    jdbc:
+      initialize-schema: always
+    store-type: jdbc
+
+logging:
+  file:
+    name: app.log
