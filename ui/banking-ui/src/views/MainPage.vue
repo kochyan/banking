@@ -323,7 +323,7 @@ export default {
 
     openDeleteDialog(item) {
       this.deleteLegalEntity = Object.assign({}, item)
-      this.deleteId = this.legalEntityItems.indexOf(item)
+      this.deleteIdx = this.legalEntityItems.indexOf(item)
       this.dialogDelete = true
     },
 
