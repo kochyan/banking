@@ -44,6 +44,7 @@
 
 <script>
 import VueCookie from "vue-cookie";
+
 export default {
   data() {
     return {
@@ -103,7 +104,12 @@ export default {
       return this.sideBarRows
     },
     isAuthenticated() {
-      return (this.username !== null && this.username.trim() !== '')
+      if (this.username) {
+        if (this.username.trim() !== '' && this.username !== 'undefined') {
+          return true
+        }
+      }
+      return false
     }
   }
 }

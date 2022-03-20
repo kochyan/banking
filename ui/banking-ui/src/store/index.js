@@ -13,10 +13,6 @@ export default new Vuex.Store({
             login: '/login',
             mainPage: '/'
         },
-        errorMessages: {
-            authFailed: 'Неверный логин или пароль',
-            serverError: 'Упс! Что-то пошло не так'
-        },
         cookieOptions: {
             expires: 'Session'
         }

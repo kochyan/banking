@@ -4,6 +4,7 @@ server:
 api:
   prefix: /api
 
+
 origin:
   localhost: http://localhost:8081
 
@@ -27,6 +28,7 @@ spring:
     jdbc:
       initialize-schema: always
     store-type: jdbc
+    timeout: 30m
 
 logging:
   file:

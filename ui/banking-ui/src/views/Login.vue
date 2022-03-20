@@ -118,26 +118,18 @@ export default {
     isPasswordValid() {
       return this.loginRequestBodyDto.password && this.loginRequestBodyDto.password.trim().length >= 3
     },
-    clearStore() {
-      this.$store.commit('clearUsername')
-      this.$store.commit('clearPrivileges')
-      this.$store.commit('clearRoles')
-    },
     updateStoreData(data) {
-      this.clearStore()
       this.$store.dispatch('setUsernameAsync', data)
       this.$store.dispatch('setRolesAsync', data)
       this.$store.dispatch('setPrivilegesAsync', data)
     },
     clearAlertParams() {
-      this.alertParams.message = null
+      this.alertParams.message = ''
       this.alertParams.statusCode = 0
     },
     getAlertMessage(errorCode) {
       if (errorCode === 401) {
-        return this.$store.getters.ERROR_MESSAGES.authFailed
-      } else if (errorCode === 500) {
-        return this.$store.getters.ERROR_MESSAGES.serverError
+        return 'Неверный логин или пароль'
       }
 
       return ''

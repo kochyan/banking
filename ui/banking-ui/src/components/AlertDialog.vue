@@ -73,11 +73,11 @@ export default {
         return
       }
 
-      if (this.message === "") {
+      if (this.message === '') {
         if (this.errorStatusCode === 401) {
           this.clearStore()
           if (this.$route.path !== this.url.login) {
-            this.$router.push(this.url.auth)
+            this.$router.push(this.url.login)
           }
         } else if (this.errorStatusCode === 500) {
           this.errorMessage = this.allErrors["500"];
@@ -95,9 +95,9 @@ export default {
       }
     },
     clearStore() {
-      this.$store.commit('clearUsername')
-      this.$store.commit('clearPrivileges')
-      this.$store.commit('clearRoles')
+      this.$store.dispatch('setUsernameAsync', '')
+      this.$store.dispatch('setRolesAsync', [])
+      this.$store.dispatch('setPrivilegesAsync', [])
     }
   },
 }

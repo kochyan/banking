@@ -269,9 +269,10 @@ export default {
       this.axios.get(
           process.env.VUE_APP_ROOT_API + this.url.legalEntity + '/eager',
       ).then(response => {
-        this.legalEntityItems = response.data;
+        this.legalEntityItems = response.data
       }).catch((error) => {
-        this.alertParams.statusCode = error.response.status;
+        this.alertParams.statusCode = error.response.status
+        this.alertParams.message = ''
       });
     },
 
@@ -347,16 +348,6 @@ export default {
     clearAlertParams() {
       this.alertParams.message = ''
       this.alertParams.statusCode = 0
-    },
-
-    getAlertMessage(errorCode) {
-      if (errorCode === 401) {
-        return this.$store.getters.ERROR_MESSAGES.authFailed
-      } else if (errorCode === 500) {
-        return this.$store.getters.ERROR_MESSAGES.serverError
-      }
-
-      return ''
     },
 
     hideCheckingAccount(item) {
