@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import java.util.Objects;
@@ -16,8 +17,14 @@ import java.util.Objects;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Privilege extends AbstractEntity{
+public class Privilege extends AbstractEntity implements GrantedAuthority {
     private String name;
+
+
+    @Override
+    public String getAuthority() {
+        return name;
+    }
 
     @Override
     public boolean equals(Object o) {

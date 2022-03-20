@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +22,7 @@ import java.util.Set;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role extends AbstractEntity implements GrantedAuthority {
+public class Role extends AbstractEntity {
     private String name;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -33,11 +32,6 @@ public class Role extends AbstractEntity implements GrantedAuthority {
             inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id")
     )
     private Set<Privilege> privileges = new HashSet<>();
-
-    @Override
-    public String getAuthority() {
-        return getName();
-    }
 
     @Override
     public boolean equals(Object o) {

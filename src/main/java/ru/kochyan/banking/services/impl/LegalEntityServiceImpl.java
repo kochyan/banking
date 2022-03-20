@@ -33,7 +33,7 @@ public class LegalEntityServiceImpl extends AbstractServiceImpl<LegalEntity> imp
 
     @Override
     public EagerLegalEntityDto update(EagerLegalEntityDto dto) {
-        // update logic
+
         return null;
     }
 

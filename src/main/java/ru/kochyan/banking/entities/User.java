@@ -19,6 +19,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity(name = "usr")
 @Getter
@@ -43,7 +44,10 @@ public class User extends AbstractEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return roles.stream()
+                .flatMap(role -> role.getPrivileges().stream())
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     @Override

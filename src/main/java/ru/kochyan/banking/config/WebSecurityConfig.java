@@ -49,6 +49,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeHttpRequests()
                 .antMatchers(HttpMethod.POST, prefix + "/auth/login").permitAll()
+                .antMatchers(HttpMethod.GET, prefix + "/legal-entity/eager").hasAuthority("CAN_SELECT")
+                .antMatchers(HttpMethod.PUT, prefix + "/legal-entity").hasAuthority("CAN_UPDATE")
+                .antMatchers(HttpMethod.POST, prefix + "/legal-entity").hasAuthority("CAN_INSERT")
+                .antMatchers(HttpMethod.DELETE, prefix + "/legal-entity").hasAuthority("CAN_DELETE")
                 .anyRequest().authenticated()
                 .and()
                 .rememberMe().alwaysRemember(true);
