@@ -53,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, prefix + "/legal-entity").hasAuthority("CAN_UPDATE")
                 .antMatchers(HttpMethod.POST, prefix + "/legal-entity").hasAuthority("CAN_INSERT")
                 .antMatchers(HttpMethod.DELETE, prefix + "/legal-entity").hasAuthority("CAN_DELETE")
+                .antMatchers(HttpMethod.GET, prefix + "/log").hasAuthority("CAN_USE_ADMIN_PANEL")
                 .anyRequest().authenticated()
                 .and()
                 .rememberMe().alwaysRemember(true);

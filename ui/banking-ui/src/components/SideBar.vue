@@ -69,6 +69,7 @@ export default {
 
       sideBarRows: [
         {title: 'Главная', icon: 'mdi-format-list-bulleted', path: this.$store.getters.ROUTES.mainPage},
+        {title: 'Админка', icon: 'mdi-file-multiple', path: this.$store.getters.ROUTES.adminPanel},
       ],
     }
   },
@@ -98,9 +99,12 @@ export default {
     initData() {
       this.username = VueCookie.get('username');
       this.roles = VueCookie.get('roles')
-      this.privileges = VueCookie.get('roles')
+      this.privileges = VueCookie.get('privileges')
     },
     getAllowedSideBarRows() {
+      if (this.privileges.includes('CAN_USE_ADMIN_PANEL') === false) {
+        this.sideBarRows = this.sideBarRows.filter(row => row.title !== "Админка")
+      }
       return this.sideBarRows
     },
     isAuthenticated() {

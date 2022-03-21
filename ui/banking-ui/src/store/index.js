@@ -11,7 +11,8 @@ export default new Vuex.Store({
         privileges: [],
         routes: {
             login: '/login',
-            mainPage: '/'
+            mainPage: '/',
+            adminPanel: '/admin',
         },
         cookieOptions: {
             expires: 'Session'
