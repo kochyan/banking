@@ -17,7 +17,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/banking
     driver-class-name: org.postgresql.Driver
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     show-sql: true
     hibernate:
       ddl-auto: update

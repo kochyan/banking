@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 
 @Getter
 @Setter
@@ -15,5 +15,5 @@ import ru.kochyan.banking.enums.Status;
 public class PaymentPurposeDto {
     private Long id;
     private String name;
-    private Status status;
+    private EntityStatus status;
 }

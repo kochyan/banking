@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 
 import java.util.Set;
 
@@ -17,6 +17,6 @@ import java.util.Set;
 public class EagerCheckingAccountDto {
     private Long id;
     private String value;
-    private Status status;
+    private EntityStatus status;
     private Set<PaymentPurposeDto> paymentPurposes;
 }

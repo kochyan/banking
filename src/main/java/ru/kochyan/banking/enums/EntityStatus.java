@@ -1,5 +1,5 @@
 package ru.kochyan.banking.enums;
 
-public enum Status {
+public enum EntityStatus {
     ACTIVE, DELETED
 }

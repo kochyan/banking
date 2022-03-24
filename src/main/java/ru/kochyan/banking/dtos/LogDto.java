@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import ru.kochyan.banking.enums.LogLevel;
 
 import java.util.Date;
 
@@ -18,4 +19,5 @@ public class LogDto {
     private String author;
     private Date created;
     private String message;
+    private LogLevel level;
 }

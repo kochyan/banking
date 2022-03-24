@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import ru.kochyan.banking.dtos.EagerLegalEntityDto;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 import ru.kochyan.banking.services.LegalEntityService;
 
 @RestController
@@ -44,7 +44,7 @@ public class LegalEntityController {
 
     @GetMapping("/eager")
     public ResponseEntity<?> eagerFindAllActive() {
-        return ResponseEntity.ok(legalEntityService.eagerFindAllByStatus(Status.ACTIVE));
+        return ResponseEntity.ok(legalEntityService.eagerFindAllByStatus(EntityStatus.ACTIVE));
     }
 
     @GetMapping("/{id}")

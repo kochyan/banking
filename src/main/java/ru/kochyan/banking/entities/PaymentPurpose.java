@@ -6,8 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,7 +31,7 @@ public class PaymentPurpose extends AbstractEntity {
     private CheckingAccount checkingAccount;
 
     @Enumerated(value = EnumType.STRING)
-    private Status status;
+    private EntityStatus status;
 
 
     @Override

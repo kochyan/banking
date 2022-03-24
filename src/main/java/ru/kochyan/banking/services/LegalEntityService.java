@@ -2,7 +2,7 @@ package ru.kochyan.banking.services;
 
 import ru.kochyan.banking.dtos.EagerLegalEntityDto;
 import ru.kochyan.banking.entities.LegalEntity;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ public interface LegalEntityService extends AbstractService<LegalEntity> {
 
     void delete(Long id);
 
-    List<EagerLegalEntityDto> eagerFindAllByStatus(Status status);
+    List<EagerLegalEntityDto> eagerFindAllByStatus(EntityStatus status);
 }

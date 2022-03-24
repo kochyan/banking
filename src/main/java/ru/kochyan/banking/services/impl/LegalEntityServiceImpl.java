@@ -6,7 +6,7 @@ import ru.kochyan.banking.dtos.EagerCheckingAccountDto;
 import ru.kochyan.banking.dtos.EagerLegalEntityDto;
 import ru.kochyan.banking.entities.CheckingAccount;
 import ru.kochyan.banking.entities.LegalEntity;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 import ru.kochyan.banking.repos.LegalEntityRepo;
 import ru.kochyan.banking.services.LegalEntityService;
 import ru.kochyan.banking.utils.mappers.LegalEntityMapper;
@@ -46,16 +46,16 @@ public class LegalEntityServiceImpl extends AbstractServiceImpl<LegalEntity> imp
             for (CheckingAccount account : entity.getCheckingAccounts()) {
                 if (!active.isEmpty()) {
                     if (!active.contains(account.getId())) {
-                        account.setStatus(Status.DELETED);
+                        account.setStatus(EntityStatus.DELETED);
                     }
                 } else {
-                    account.setStatus(Status.DELETED);
+                    account.setStatus(EntityStatus.DELETED);
                 }
             }
 
             entity.setName(dto.getName());
             LegalEntity updated = legalEntityRepo.save(entity);
-            updated.getCheckingAccounts().removeIf(acc -> acc.getStatus().equals(Status.DELETED));
+            updated.getCheckingAccounts().removeIf(acc -> acc.getStatus().equals(EntityStatus.DELETED));
             return LegalEntityMapper.toDto(updated);
         } else {
             throw new EntityNotFoundException();
@@ -67,7 +67,7 @@ public class LegalEntityServiceImpl extends AbstractServiceImpl<LegalEntity> imp
         Optional<LegalEntity> optionalEntity = legalEntityRepo.findById(id);
         if (optionalEntity.isPresent()) {
             LegalEntity entity = optionalEntity.get();
-            entity.setStatus(Status.DELETED);
+            entity.setStatus(EntityStatus.DELETED);
             legalEntityRepo.save(entity);
         } else {
             throw new EntityNotFoundException();
@@ -75,11 +75,11 @@ public class LegalEntityServiceImpl extends AbstractServiceImpl<LegalEntity> imp
     }
 
     @Override
-    public List<EagerLegalEntityDto> eagerFindAllByStatus(Status status) {
+    public List<EagerLegalEntityDto> eagerFindAllByStatus(EntityStatus status) {
         List<LegalEntity> entities = legalEntityRepo.findAllByStatus(status.name());
         entities.forEach(
                 legal -> legal.getCheckingAccounts()
-                        .removeIf(acc -> acc.getStatus().equals(Status.DELETED))
+                        .removeIf(acc -> acc.getStatus().equals(EntityStatus.DELETED))
         );
         return entities.stream()
                 .map(LegalEntityMapper::toDto)

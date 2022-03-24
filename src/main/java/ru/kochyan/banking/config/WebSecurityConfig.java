@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidSessionStrategy(invalidSessionStrategy())
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers(HttpMethod.POST, prefix + "/auth/login").permitAll()
+                .antMatchers( prefix + "/auth/*").permitAll()
                 .antMatchers(HttpMethod.GET, prefix + "/legal-entity/eager").hasAuthority("CAN_SELECT")
                 .antMatchers(HttpMethod.PUT, prefix + "/legal-entity").hasAuthority("CAN_UPDATE")
                 .antMatchers(HttpMethod.POST, prefix + "/legal-entity").hasAuthority("CAN_INSERT")
@@ -68,7 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+        return NoOpPasswordEncoder.getInstance(); //TODO
     }
 
     @Bean

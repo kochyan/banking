@@ -2,14 +2,13 @@ package ru.kochyan.banking.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -45,7 +44,7 @@ public class LegalEntity extends AbstractEntity {
     private String name;
 
     @Enumerated(value = EnumType.STRING)
-    private Status status;
+    private EntityStatus status;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "legalEntity")
     @ToString.Exclude

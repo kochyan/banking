@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -25,7 +25,7 @@ public class IndividualEntity extends AbstractEntity {
     private String patronymic;
 
     @Enumerated(value = EnumType.STRING)
-    private Status status;
+    private EntityStatus status;
 
     @Override
     public boolean equals(Object o) {

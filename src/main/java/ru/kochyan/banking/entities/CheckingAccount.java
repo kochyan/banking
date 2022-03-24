@@ -8,7 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
-import ru.kochyan.banking.enums.Status;
+import ru.kochyan.banking.enums.EntityStatus;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -38,7 +38,7 @@ public class CheckingAccount extends AbstractEntity {
     private LegalEntity legalEntity;
 
     @Enumerated(value = EnumType.STRING)
-    private Status status;
+    private EntityStatus status;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "checkingAccount")
     @ToString.Exclude
