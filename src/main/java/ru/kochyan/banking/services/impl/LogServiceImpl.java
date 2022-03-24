@@ -1,7 +1,5 @@
 package ru.kochyan.banking.services.impl;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.kochyan.banking.entities.Log;
 import ru.kochyan.banking.repos.LogRepo;
@@ -15,10 +13,4 @@ public class LogServiceImpl extends AbstractServiceImpl<Log> implements LogServi
         super(logRepo);
         this.logRepo = logRepo;
     }
-
-    @Override
-    public Page<Log> findAll(Pageable pageable) {
-        return logRepo.findAll(pageable);
-    }
-
 }
