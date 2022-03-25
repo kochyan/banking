@@ -2,6 +2,7 @@ package ru.kochyan.banking.repos;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.NonNull;
+import org.springframework.lang.NonNullApi;
 import ru.kochyan.banking.entities.Log;
 
 import java.util.List;
