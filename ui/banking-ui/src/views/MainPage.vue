@@ -15,7 +15,12 @@
     <v-tabs-items v-model="tab">
       <v-tab-item>
         <div>
-          <LegalEntityTable />
+          <LegalEntityTable/>
+        </div>
+      </v-tab-item>
+      <v-tab-item>
+        <div>
+          <IndividualEntityTable/>
         </div>
       </v-tab-item>
     </v-tabs-items>
@@ -23,9 +28,10 @@
 </template>
 <script>
 import LegalEntityTable from "@/components/main/LegalEntityTable";
+import IndividualEntityTable from "@/components/main/IndividualEntityTable";
 
 export default {
-  components: {LegalEntityTable},
+  components: {LegalEntityTable, IndividualEntityTable},
 
   data() {
     return {
