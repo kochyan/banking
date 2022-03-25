@@ -307,7 +307,7 @@ export default {
 
     commitDelete() {
       this.axios.delete(
-          process.env.VUE_APP_ROOT_API + this.url.individualEntity + '/' + this.deleteindividualEntity.id,
+          process.env.VUE_APP_ROOT_API + this.url.individualEntity + '/' + this.deleteIndividualEntity.id,
       ).then(() => {
         this.individualEntityItems.splice(this.deleteIdx, 1)
         this.closeDelete()
@@ -318,7 +318,7 @@ export default {
     },
 
     closeDelete() {
-      this.deleteindividualEntity = Object.assign({}, this.emptyIndividualEntity)
+      this.deleteIndividualEntity = Object.assign({}, this.emptyIndividualEntity)
       this.deleteIdx = null
       this.dialogDelete = false
     },
