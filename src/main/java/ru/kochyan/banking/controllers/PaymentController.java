@@ -7,13 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import ru.kochyan.banking.dtos.PaymentDto;
 import ru.kochyan.banking.entities.Payment;
 import ru.kochyan.banking.services.PaymentService;
+import ru.kochyan.banking.utils.mappers.PaymentMapper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("${api.prefix}/log")
+@RequestMapping("${api.prefix}/payment")
 @CrossOrigin(origins = {"${origin.localhost}"},
         allowedHeaders = "*",
         allowCredentials = "true",
@@ -30,7 +33,10 @@ public class PaymentController {
 
 
     @GetMapping
-    public ResponseEntity<List<Payment>> findAll() {
-        return ResponseEntity.ok(paymentService.findAll());
+    public ResponseEntity<List<PaymentDto>> findAll() {
+        return ResponseEntity.ok(paymentService.findAll().stream()
+                .map(PaymentMapper::toDto)
+                .collect(Collectors.toList())
+        );
     }
 }

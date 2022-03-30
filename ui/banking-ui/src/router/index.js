@@ -4,6 +4,7 @@ import Login from '../views/Login'
 import SideBar from "@/components/SideBar";
 import MainPage from "@/views/MainPage";
 import AdminPanel from "@/views/AdminPanel";
+import Payment from "@/views/Payment"
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,15 @@ const routes = [
         name: 'AdminPanel',
         components: {
             default: AdminPanel,
+            sidebar: SideBar
+        }
+    },
+
+    {
+        path: '/payment',
+        name: 'Payment',
+        components: {
+            default: Payment,
             sidebar: SideBar
         }
     },

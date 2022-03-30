@@ -70,6 +70,7 @@ export default {
       sideBarRows: [
         {title: 'Главная', icon: 'mdi-format-list-bulleted', path: this.$store.getters.ROUTES.mainPage},
         {title: 'Админка', icon: 'mdi-file-multiple', path: this.$store.getters.ROUTES.adminPanel},
+        {title: 'Платежи', icon: 'mdi-cash-multiple', path: this.$store.getters.ROUTES.payment},
       ],
     }
   },

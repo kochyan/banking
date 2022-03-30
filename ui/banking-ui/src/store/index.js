@@ -13,6 +13,7 @@ export default new Vuex.Store({
             login: '/login',
             mainPage: '/',
             adminPanel: '/admin',
+            payment: '/payment'
         },
         cookieOptions: {
             expires: 'Session'

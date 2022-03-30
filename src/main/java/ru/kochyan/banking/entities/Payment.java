@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -44,6 +44,9 @@ public class Payment extends AbstractEntity {
     private BankBranch bankBranch;
 
     private Double value;
+
+    @CreatedDate
+    private Date date;
 
     @Override
     public boolean equals(Object o) {

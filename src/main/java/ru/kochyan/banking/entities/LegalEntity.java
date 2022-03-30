@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@NamedEntityGraph(name = "legalEntity.eager", includeAllAttributes = true,
+/*@NamedEntityGraph(name = "legalEntity.eager", includeAllAttributes = true,
         attributeNodes = {
                 @NamedAttributeNode(value = "checkingAccounts", subgraph = "checkingAccountGraph")
         },
@@ -32,7 +32,7 @@ import java.util.Set;
                     @NamedAttributeNode("paymentPurposes")
             })
         }
-)
+)*/
 @Entity
 @Getter
 @Setter
