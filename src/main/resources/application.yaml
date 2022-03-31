@@ -4,7 +4,6 @@ server:
 api:
   prefix: /api
 
-
 origin:
   localhost: http://localhost:8081
 

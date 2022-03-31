@@ -1,5 +1,5 @@
 <template>
-  <v-container class="fill-height" fluid>
+  <v-container class="fill-height">
     <v-card class="mx-auto" width="600">
       <v-container>
         <v-text-field
